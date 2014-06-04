@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Form Handling</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="/users/create" th:object="${user}" method="post">
+		<label for="first_name">First Name:</label>
+		<input id="first_name" type="text" th:field="*{first_name}" /> <br />
+		<p data-th-text="${first_name}"></p>
+		
+		<label for="last_name">Last Name:</label>
+		<input id="last_name" type="text" th:field="*{last_name}" /> <br />
+		<p data-th-text="${last_name}"></p>
+		
+		<label for="email">Email:</label>
+		<input id="email" type="text" th:field="*{email}" /> <br />
+		<p data-th-text="${email}"></p>
+		
+		<label for="password">Password:</label>
+		<input id="password" type="password" th:field="*{password}" /> <br />
+		<p data-th-text="${passwordValid}"></p>
+		<p data-th-text="${password}"></p>
+		
+		<label for="confirm_password">Confirm Password:</label>
+		<input id="confirm_password" type="password" th:field="*{confirm_password}" /> <br />
+		<p data-th-text="${confirm_password}"></p>
+		
+		<input type="submit" value="Register" />
+	</form>
+	
+	<h3>List of Registered Users</h3>
+	<ul>
+		<li data-th-each="user : ${users}" data-th-text="${user.first_name} + ' - ' + ${user.email}"></li>
+	</ul>
+</body>
+</html>
