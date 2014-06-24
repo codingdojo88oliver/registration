@@ -42,7 +42,7 @@
     </dependencies>
 
     <properties>
-        <start-class>registration.Application</start-class>
+        <start-class>application.App</start-class>
     </properties>
 
     <build>
